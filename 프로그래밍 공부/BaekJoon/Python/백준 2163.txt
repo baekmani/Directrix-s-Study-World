@@ -1,4 +1,0 @@
-백준 2163
-x, y = map(int, input().split())
-
-print(x*y-1)
