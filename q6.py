@@ -1,5 +1,3 @@
-# 프로그래머스에선 런타임 에러 발생
-
 def solution(N, stages):
     stageSet = []
     fail = {}
@@ -11,8 +9,11 @@ def solution(N, stages):
     member = len(stages)
     
     for i in range(1, len(stageSet)):
-        fail[i] = stages.count(stageSet[i])/member
-        member = member - stages.count(stageSet[i])
+        if member != 0:
+            fail[i] = stages.count(stageSet[i])/member
+            member = member - stages.count(stageSet[i])
+        else:
+            fail[i] = 0
     fail = sorted(fail.items(), key=lambda x: x[1], reverse=True)
     
     for i in range(len(fail)):
