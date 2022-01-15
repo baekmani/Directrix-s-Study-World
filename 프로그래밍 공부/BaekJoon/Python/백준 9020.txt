@@ -1,0 +1,46 @@
+백준 9020
+
+# 입력한 숫자의 중간 값부터 소수인지 판별하며 해당 값들을 더해 입력한 숫자와 비교한다
+# a는 -1씩 b는 +1씩 증감한다.
+
+import sys
+input = sys.stdin.readline
+
+a = int(input())
+
+def sosu(num):
+    for i in range(2, int(num**(1/2))+1):
+        if num % i == 0:
+            return False
+    else:
+        return True
+
+
+for i in range(a):        
+    num = int(input())
+    
+    a = num // 2         
+    b = num // 2
+
+    while True:
+    
+        # 소수 일 때까지 증감한다.
+        while True:
+            if sosu(a):
+                break
+            else :
+                a -= 1
+        while True:
+            if sosu(b):
+                break
+            else:
+                b += 1
+        if a + b == num:
+            break
+        
+        # 중간값과 차이가 작은 값만 1 증감한다.
+        if num//2 - a > abs(num//2 - b):
+            b += 1
+        else:
+            a -= 1
+    print(a, b)

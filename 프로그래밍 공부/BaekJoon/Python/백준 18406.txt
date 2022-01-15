@@ -1,0 +1,20 @@
+백준 18406
+
+# Q5 Answer Template
+
+n = input()
+
+one = list(map(int, n[0:int(len(n)/2)]))
+two = list(map(int, n[int(len(n)/2):]))
+
+sum1 = 0
+sum2 = 0
+
+for i in range(len(one)):
+    sum1 += one[i]  
+    sum2 += two[i]
+
+if sum2 == sum1:
+    print("LUCKY")
+else :
+    print("READY")

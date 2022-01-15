@@ -1,0 +1,10 @@
+백준 18310
+
+import sys
+input = sys.stdin.readline
+
+cnt = int(input())
+house = list(map(int, input().split()))
+house.sort()
+print(house[int((cnt-1)/2)])
+

@@ -1,0 +1,23 @@
+백준 4948
+
+# 짝수 인놈은 그냥 버려
+
+import sys
+input = sys.stdin.readline
+
+while True:
+    a = int(input())
+    count = 0
+    if a == 0:
+        break
+    if a == 1:
+        count = 1
+    for i in range(a+1, 2*a):
+        if i % 2 == 0:
+            continue
+        for j in range(2, int(i**0.5+1)):
+            if i % j == 0:
+                break
+        else:
+            count += 1
+    print(count)
