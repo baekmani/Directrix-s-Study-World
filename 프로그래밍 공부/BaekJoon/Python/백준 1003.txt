@@ -1,0 +1,25 @@
+백준 1003
+
+# 피보나치의 0과 1의 참여도
+# 하위 차례의 두개의 덧셈과 같다
+# 1  0  1  1  2  3  5  8
+# 0  1  1  2  3  5  8  13
+import sys
+input = sys.stdin.readline
+
+a = int(input())
+
+for i in range(a):
+    num = int(input())
+    
+    lis = [[None for i in range(2)] for j in range(num + 3)]
+    
+    lis[0][0] = 1
+    lis[0][1] = 0
+    lis[1][0] = 0
+    lis[1][1] = 1
+    
+    for j in range(2, num + 1):
+        lis[j][0] = lis[j-1][0] + lis[j-2][0]
+        lis[j][1] = lis[j-1][1] + lis[j-2][1]
+    print(lis[num][0], lis[num][1])
